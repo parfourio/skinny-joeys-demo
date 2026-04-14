@@ -494,32 +494,38 @@
       background: var(--red);
     }
 
-    .menu-card-img {
+    .menu-card-num {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-      background: var(--dark);
-    }
-
-    .menu-card-img-placeholder {
-      width: 100%;
-      height: 200px;
+      height: 160px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.06em;
-      color: rgba(245,245,245,0.15);
+      justify-content: flex-end;
+      padding: 0 24px;
+      background: var(--dark-card);
+      overflow: hidden;
+      position: relative;
     }
 
-    .menu-card-img-placeholder-1 { background: linear-gradient(135deg, #1a0a0a, #2e0505); }
-    .menu-card-img-placeholder-2 { background: linear-gradient(135deg, #0a0a1a, #050520); }
-    .menu-card-img-placeholder-3 { background: linear-gradient(135deg, #0a1a0a, #051505); }
-    .menu-card-img-placeholder-4 { background: linear-gradient(135deg, #1a1a0a, #1e1800); }
-    .menu-card-img-placeholder-5 { background: linear-gradient(135deg, #1a0a1a, #200520); }
-    .menu-card-img-placeholder-6 { background: linear-gradient(135deg, #0a1a1a, #001e1e); }
+    .menu-card-num-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      line-height: 1;
+      color: rgba(204,0,0,0.12);
+      letter-spacing: 0.02em;
+      position: absolute;
+      right: 12px;
+      bottom: -10px;
+    }
+
+    .menu-card-num-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      color: var(--red);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
 
     .menu-body { padding: 20px 22px 24px; }
 
@@ -975,7 +981,7 @@
 
   <!-- BANNER -->
   <div class="outreach-banner">
-    <span>Joey — I built this for you and want to give it to you if you like it. Let me know what you think.</span>
+    <span>Hi Skinny Joey — I built this for you and want to give it to you if you like it. Let me know what you think.</span>
     <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
   </div>
 
@@ -1096,7 +1102,7 @@
       </div>
       <div class="menu-grid">
         <div class="menu-card">
-          <div class="menu-card-img-placeholder menu-card-img-placeholder-1">🥩</div>
+          <div class="menu-card-num"><span class="menu-card-num-label">RIBEYE</span><span class="menu-card-num-big">01</span></div>
           <div class="menu-body">
             <span class="menu-tag">The Classic</span>
             <div class="menu-name">Philly Cheesesteak</div>
@@ -1104,7 +1110,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder menu-card-img-placeholder-2">🍗</div>
+          <div class="menu-card-num"><span class="menu-card-num-label">CHICKEN</span><span class="menu-card-num-big">02</span></div>
           <div class="menu-body">
             <span class="menu-tag">Fan Favorite</span>
             <div class="menu-name">Chicken Cheesesteak</div>
@@ -1112,7 +1118,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder menu-card-img-placeholder-3">🍕</div>
+          <div class="menu-card-num"><span class="menu-card-num-label">PIZZA ROLLS</span><span class="menu-card-num-big">03</span></div>
           <div class="menu-body">
             <span class="menu-tag">South Philly Style</span>
             <div class="menu-name">Florida-Style Pizza Rolls</div>
@@ -1120,7 +1126,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder menu-card-img-placeholder-4">🍯</div>
+          <div class="menu-card-num"><span class="menu-card-num-label">HOT HONEY</span><span class="menu-card-num-big">04</span></div>
           <div class="menu-body">
             <span class="menu-tag">Already a Philly Staple</span>
             <div class="menu-name">Hot Honey Wings</div>
@@ -1128,7 +1134,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder menu-card-img-placeholder-5">🧀</div>
+          <div class="menu-card-num"><span class="menu-card-num-label">AVERSA'S</span><span class="menu-card-num-big">05</span></div>
           <div class="menu-body">
             <span class="menu-tag">The Roll That Makes It</span>
             <div class="menu-name">Aversa's Rolls</div>
@@ -1136,7 +1142,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-img-placeholder menu-card-img-placeholder-6">🏆</div>
+          <div class="menu-card-num"><span class="menu-card-num-label">COOPER SHARP</span><span class="menu-card-num-big">06</span></div>
           <div class="menu-body">
             <span class="menu-tag">The Cheese Game</span>
             <div class="menu-name">Cooper Sharp</div>
