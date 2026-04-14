@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skinny Joey's Cheesesteaks | South Philly's Own · 3020 S Broad St</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #cc0000;
+      --red-dark: #a00000;
+      --red-light: #e52222;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+      --white: #f5f5f5;
+      --white-mid: rgba(245,245,245,0.7);
+      --white-dim: rgba(245,245,245,0.35);
+      --gold: #f0c030;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── BANNER ── */
+    .outreach-banner {
+      background: var(--red);
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 600;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .outreach-banner a {
+      display: inline-block;
+      background: #fff;
+      color: var(--red-dark);
+      padding: 6px 16px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .outreach-banner a:hover { background: #ffe0e0; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: var(--black);
+      border-bottom: 2px solid var(--red);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--red); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white-mid);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--red-light); }
+
+    .nav-links .nav-cta a {
+      background: var(--red);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+
+    .nav-links .nav-cta a:hover { background: var(--red-light); color: #fff; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.15) 40%, rgba(10,10,10,0.85) 80%, rgba(10,10,10,1) 100%),
+        linear-gradient(to right, rgba(10,10,10,0.7) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .hero-eyebrow-line { width: 32px; height: 2px; background: var(--red); }
+
+    .hero-eyebrow-text {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--red-light);
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 140px);
+      line-height: 0.9;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 span { color: var(--red); display: block; }
+
+    .hero-sub {
+      font-size: 16px;
+      color: var(--white-mid);
+      max-width: 560px;
+      line-height: 1.65;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-red {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      padding: 14px 32px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-red:hover { background: var(--red-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 2px solid rgba(245,245,245,0.35);
+      color: var(--white);
+      padding: 14px 32px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--red); color: var(--red-light); }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--red);
+      overflow: hidden;
+      padding: 10px 0;
+      border-bottom: 2px solid var(--red-dark);
+    }
+
+    .ticker-track {
+      display: flex;
+      animation: ticker 28s linear infinite;
+      width: max-content;
+    }
+
+    .ticker-item {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+
+    .ticker-sep { color: rgba(255,255,255,0.45); padding: 0; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── STATS ── */
+    .stats-strip {
+      background: var(--dark);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 36px 24px;
+      text-align: center;
+      border-right: 1px solid var(--dark-border);
+      position: relative;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 52px;
+      color: var(--red-light);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+
+    /* ── STORY ── */
+    .story-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+
+    .story-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .story-img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+      position: relative;
+    }
+
+    .story-img-wrap {
+      position: relative;
+    }
+
+    .story-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 60%;
+      height: 60%;
+      border: 2px solid var(--red);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .story-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-line { width: 28px; height: 2px; background: var(--red); }
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red-light);
+    }
+
+    .story-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 5vw, 72px);
+      line-height: 0.95;
+      color: var(--white);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .story-title span { color: var(--red); }
+
+    .story-body {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .story-quote {
+      border-left: 3px solid var(--red);
+      padding: 16px 20px;
+      margin: 28px 0;
+      background: var(--dark-card);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .story-quote p {
+      font-size: 16px;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    /* ── MENU ── */
+    .menu-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-section::before {
+      content: 'MENU';
+      position: absolute;
+      top: -20px;
+      right: -40px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 200px;
+      color: rgba(204,0,0,0.04);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: 0.04em;
+    }
+
+    .menu-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 72px);
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      margin-top: 8px;
+    }
+
+    .section-title span { color: var(--red); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .menu-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+
+    .menu-card:hover {
+      border-color: var(--red);
+      transform: translateY(-3px);
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+
+    .menu-card-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+      background: var(--dark);
+    }
+
+    .menu-card-img-placeholder {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: rgba(245,245,245,0.15);
+    }
+
+    .menu-card-img-placeholder-1 { background: linear-gradient(135deg, #1a0a0a, #2e0505); }
+    .menu-card-img-placeholder-2 { background: linear-gradient(135deg, #0a0a1a, #050520); }
+    .menu-card-img-placeholder-3 { background: linear-gradient(135deg, #0a1a0a, #051505); }
+    .menu-card-img-placeholder-4 { background: linear-gradient(135deg, #1a1a0a, #1e1800); }
+    .menu-card-img-placeholder-5 { background: linear-gradient(135deg, #1a0a1a, #200520); }
+    .menu-card-img-placeholder-6 { background: linear-gradient(135deg, #0a1a1a, #001e1e); }
+
+    .menu-body { padding: 20px 22px 24px; }
+
+    .menu-tag {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .menu-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .menu-desc {
+      font-size: 13px;
+      color: var(--white-mid);
+      line-height: 1.65;
+    }
+
+    /* ── LOCATION ── */
+    .location-section {
+      padding: 100px 24px;
+      background: var(--black);
+      position: relative;
+    }
+
+    .location-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .location-img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .location-right h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 68px);
+      color: var(--white);
+      line-height: 0.95;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .location-right h2 span { color: var(--red); }
+
+    .location-right p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .location-details {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 28px 0 36px;
+      padding: 24px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-left: 3px solid var(--red);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--white-mid);
+    }
+
+    .location-detail-icon {
+      color: var(--red-light);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .stadiums {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .stadium-tag {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      padding: 6px 14px;
+      border-radius: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-mid);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .stadium-tag:hover { border-color: var(--red); color: var(--white); }
+
+    /* ── MERCH ── */
+    .merch-section {
+      padding: 100px 24px;
+      background: var(--red);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .merch-section::before {
+      content: 'MERCH';
+      position: absolute;
+      top: -30px;
+      left: -20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 220px;
+      color: rgba(0,0,0,0.1);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .merch-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .merch-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 6vw, 88px);
+      color: #fff;
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    .merch-left p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: #fff;
+      color: var(--red-dark);
+      padding: 14px 32px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-white:hover { background: #ffe8e8; transform: translateY(-1px); }
+
+    .merch-right {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .merch-item {
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px;
+      padding: 20px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .merch-item:hover { background: rgba(0,0,0,0.3); }
+
+    .merch-item-emoji { font-size: 32px; margin-bottom: 10px; }
+
+    .merch-item-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* ── PODCAST ── */
+    .podcast-section {
+      padding: 100px 24px;
+      background: var(--dark);
+    }
+
+    .podcast-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .podcast-right h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 68px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    .podcast-right h2 span { color: var(--red); }
+
+    .podcast-right p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .podcast-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .platform-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      padding: 9px 18px;
+      border-radius: 2px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--white-mid);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .platform-btn:hover { border-color: var(--red); color: var(--white); }
+
+    .podcast-left {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .podcast-left::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--red);
+    }
+
+    .podcast-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .podcast-logo span { color: var(--red); }
+
+    .podcast-hosts {
+      font-size: 13px;
+      color: var(--white-dim);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .podcast-desc {
+      font-size: 14px;
+      color: var(--white-mid);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 2px solid var(--red);
+      padding: 48px 24px 28px;
+    }
+
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--dark-border);
+      margin-bottom: 24px;
+    }
+
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .footer-brand span { color: var(--red); }
+
+    .footer-tagline {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      margin-bottom: 16px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      color: var(--white-mid);
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .footer-social a:hover { background: var(--red); border-color: var(--red); color: #fff; }
+    .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .footer-col h5 {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red-light);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 13px;
+      color: var(--white-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy { font-size: 11px; color: var(--white-dim); }
+    .footer-hashtag { font-size: 11px; color: var(--red-light); font-weight: 700; letter-spacing: 0.08em; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .story-inner,
+      .location-inner,
+      .merch-inner,
+      .podcast-inner { grid-template-columns: 1fr; gap: 48px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--dark-border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--dark-border); }
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) { border-bottom: none; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .merch-inner { direction: ltr; }
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--black);
+        border-top: 2px solid var(--red);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 0;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 13px 0; border-bottom: 1px solid var(--dark-border); font-size: 13px; }
+      .nav-links .nav-cta a { border: none; background: none; color: var(--red-light); }
+
+      .menu-grid { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; gap: 28px; }
+      .merch-right { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER -->
+  <div class="outreach-banner">
+    <span>Joey — I built this for you and want to give it to you if you like it. Let me know what you think.</span>
+    <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="top">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Skinny <span>Joey's</span></a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#location">Find Us</a></li>
+        <li><a href="#podcast">Podcast</a></li>
+        <li class="nav-cta"><a href="https://theskinnyjoeyscheesesteaks.com/collections/all" target="_blank">Shop Merch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <img class="hero-img" src="https://cdn.shopify.com/s/files/1/0690/7589/4424/files/IMG_5919.jpg?v=1749348544" alt="Skinny Joey's Cheesesteaks at night" />
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">South Philly's Own · 3020 S Broad St</span>
+      </div>
+      <h1>The Hype<br><span>Is Real.</span></h1>
+      <p class="hero-sub">Opened March 29, 2025 — just weeks after the Eagles won the Super Bowl. Over 10,000 people showed up on day one. South Broad hasn't been the same since.</p>
+      <div class="hero-ctas">
+        <a href="#menu" class="btn-red">See the Menu</a>
+        <a href="#location" class="btn-outline">Get Directions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">10,000+ People on Opening Day</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">Biggest Grand Opening in Philly History</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">Fresh Ribeye · Aversa Rolls · Hot Honey Wings</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">Free Shipping for Philadelphia</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">We Can Go Anywhere</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">10,000+ People on Opening Day</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">Biggest Grand Opening in Philly History</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">Fresh Ribeye · Aversa Rolls · Hot Honey Wings</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">Free Shipping for Philadelphia</span>
+      <span class="ticker-item ticker-sep">✦</span>
+      <span class="ticker-item">We Can Go Anywhere</span>
+      <span class="ticker-item ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">10K+</div>
+        <div class="stat-label">Opening Day Crowd</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">1,339</div>
+        <div class="stat-label">Google Reviews</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.5★</div>
+        <div class="stat-label">Star Rating</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">#1</div>
+        <div class="stat-label">South Philly Cheesesteak</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story-section" id="story">
+    <div class="story-inner">
+      <div class="story-img-wrap">
+        <img class="story-img" src="https://cdn.shopify.com/s/files/1/0690/7589/4424/files/IMG_7068.jpg?v=1749795908" alt="Line around the block at Skinny Joey's opening day" />
+      </div>
+      <div>
+        <div class="story-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">The Story</span>
+        </div>
+        <h2 class="story-title">Built on<br>Loyalty.<br><span>Loyalty.</span></h2>
+        <p class="story-body">Skinny Joey's Cheesesteaks opened its doors on March 29, 2025 — just weeks after the Philadelphia Eagles won the Super Bowl. Philly showed up in full force. The line wrapped around the block, the energy was electric, and South Broad hasn't been the same since.</p>
+        <div class="story-quote">
+          <p>"He stood when most folded. He stayed loyal when others switched sides. Some follow. Joey leads — by example, by code, and by never backing down."</p>
+        </div>
+        <p class="story-body">Founded by Joey Merlino and Joe "Lil Snuff" Perri, Skinny Joey's isn't just a restaurant — it's a movement built on loyalty, hustle, and South Philly pride. Celebrities, pro athletes, and regular Philly people all pull up. This is the beginning — block by block, sandwich by sandwich.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="menu-section" id="menu">
+    <div class="menu-inner">
+      <div class="section-header">
+        <div class="story-eyebrow" style="justify-content:center">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">What We're Serving</span>
+          <div class="eyebrow-line"></div>
+        </div>
+        <h2 class="section-title">Made Fresh.<br><span>Every Time.</span></h2>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-card-img-placeholder menu-card-img-placeholder-1">🥩</div>
+          <div class="menu-body">
+            <span class="menu-tag">The Classic</span>
+            <div class="menu-name">Philly Cheesesteak</div>
+            <p class="menu-desc">Thin-sliced ribeye, melted sharp provolone or Cooper Sharp, grilled onions — on a legendary Aversa's seeded or unseeded roll. The South Philly original.</p>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-img-placeholder menu-card-img-placeholder-2">🍗</div>
+          <div class="menu-body">
+            <span class="menu-tag">Fan Favorite</span>
+            <div class="menu-name">Chicken Cheesesteak</div>
+            <p class="menu-desc">Juicy chicken cheesesteak loaded with cherry peppers and melted cheese. A Philly twist that keeps people coming back.</p>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-img-placeholder menu-card-img-placeholder-3">🍕</div>
+          <div class="menu-body">
+            <span class="menu-tag">South Philly Style</span>
+            <div class="menu-name">Florida-Style Pizza Rolls</div>
+            <p class="menu-desc">Joey's Florida-style pizza rolls — crispy, loaded, and nothing like what you've had before. A menu item that's already building a following.</p>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-img-placeholder menu-card-img-placeholder-4">🍯</div>
+          <div class="menu-body">
+            <span class="menu-tag">Already a Philly Staple</span>
+            <div class="menu-name">Hot Honey Wings</div>
+            <p class="menu-desc">Small, crispy wings tossed in Skinny Joey's signature hot honey sauce. Joey searched all over to get this right — and he did. Already becoming a Philly favorite.</p>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-img-placeholder menu-card-img-placeholder-5">🧀</div>
+          <div class="menu-body">
+            <span class="menu-tag">The Roll That Makes It</span>
+            <div class="menu-name">Aversa's Rolls</div>
+            <p class="menu-desc">Every sandwich starts with the iconic Aversa's seeded or unseeded roll — baked to perfection. The roll that gives you that true South Philly bite.</p>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-img-placeholder menu-card-img-placeholder-6">🏆</div>
+          <div class="menu-body">
+            <span class="menu-tag">The Cheese Game</span>
+            <div class="menu-name">Cooper Sharp</div>
+            <p class="menu-desc">Don't sleep on the Cooper Sharp melting over every bite. It's the secret weapon that separates Skinny Joey's from every other cheesesteak in the city.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section" id="location">
+    <div class="location-inner">
+      <img class="location-img" src="https://cdn.shopify.com/s/files/1/0690/7589/4424/files/IMG_5997.jpg?v=1749348546" alt="Skinny Joey's Cheesesteaks South Philly" />
+      <div class="location-right">
+        <div class="story-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Find Us</span>
+        </div>
+        <h2>Right in the<br>Heart of<br><span>South Philly.</span></h2>
+        <p>Located steps from every major stadium in the city. Whether you're tailgating, coming from a game, or just craving the best cheesesteak in Philly — we're right here.</p>
+        <div class="location-details">
+          <div class="location-detail">
+            <span class="location-detail-icon">📍</span>
+            <span><strong>3020 S Broad Street</strong><br>Philadelphia, PA 19145</span>
+          </div>
+          <div class="location-detail">
+            <span class="location-detail-icon">📦</span>
+            <span>Free shipping for Philadelphia orders</span>
+          </div>
+          <div class="location-detail">
+            <span class="location-detail-icon">⏰</span>
+            <span>Open daily — check social for hours</span>
+          </div>
+        </div>
+        <div class="stadiums">
+          <span class="stadium-tag">Lincoln Financial Field</span>
+          <span class="stadium-tag">Citizens Bank Park</span>
+          <span class="stadium-tag">Wells Fargo Center</span>
+          <span class="stadium-tag">Subaru Park</span>
+        </div>
+        <div style="margin-top:28px">
+          <a href="https://maps.google.com/?q=3020+S+Broad+Street+Philadelphia+PA" target="_blank" class="btn-red">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MERCH -->
+  <section class="merch-section" id="merch">
+    <div class="merch-inner">
+      <div class="merch-left">
+        <div class="story-eyebrow">
+          <div class="eyebrow-line" style="background:#fff; opacity:0.5"></div>
+          <span class="eyebrow-text" style="color:rgba(255,255,255,0.7)">Official Gear</span>
+        </div>
+        <h2>Rep the<br>Movement.</h2>
+        <p>Hats, hoodies, tees — all the official Skinny Joey's gear. Ship it anywhere in the US. Free shipping to Philly.</p>
+        <a href="https://theskinnyjoeyscheesesteaks.com/collections/all" target="_blank" class="btn-white">Shop All Merch</a>
+      </div>
+      <div class="merch-right">
+        <div class="merch-item">
+          <div class="merch-item-emoji">🧢</div>
+          <div class="merch-item-name">Hats</div>
+        </div>
+        <div class="merch-item">
+          <div class="merch-item-emoji">👕</div>
+          <div class="merch-item-name">T-Shirts</div>
+        </div>
+        <div class="merch-item">
+          <div class="merch-item-emoji">🧥</div>
+          <div class="merch-item-name">Hoodies</div>
+        </div>
+        <div class="merch-item">
+          <div class="merch-item-emoji">📦</div>
+          <div class="merch-item-name">Free Philly Shipping</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section style="padding: 80px 24px; background: var(--black);" id="video">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+        <div style="width:28px; height:2px; background:var(--red);"></div>
+        <span style="font-size:11px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--red-light);">Watch</span>
+      </div>
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(44px,5vw,68px); color:var(--white); line-height:0.95; letter-spacing:0.02em; margin-bottom:40px;">See It for <span style="color:var(--red);">Yourself.</span></h2>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:2px; border:1px solid var(--dark-border);">
+          <iframe src="https://www.youtube.com/embed/X1ZnSxohpLk" title="Skinny Joey's Cheesesteaks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+        </div>
+        <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:2px; border:1px solid var(--dark-border);">
+          <iframe src="https://www.youtube.com/embed/ePBLmjzXWA4" title="Skinny Joey's Cheesesteaks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%;"></iframe>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:28px;">
+        <a href="https://www.youtube.com/@theskinnywithjoeymerlino" target="_blank" style="display:inline-block; background:var(--red); color:#fff; padding:13px 28px; font-size:12px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; border-radius:2px;">More on YouTube →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section class="podcast-section" id="podcast">
+    <div class="podcast-inner">
+      <div class="podcast-left">
+        <div class="podcast-logo">The <span>Skinny</span></div>
+        <div class="podcast-hosts">with Joey Merlino &amp; Lil Snuff</div>
+        <p class="podcast-desc">The podcast that turned media buzz into a movement. Real conversations, real people, real South Philly. Follow on YouTube, Spotify, and all major platforms.</p>
+      </div>
+      <div class="podcast-right">
+        <div class="story-eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">The Podcast</span>
+        </div>
+        <h2>The <span>Skinny</span><br>Podcast.</h2>
+        <p>Joey Merlino and Lil Snuff built the podcast that got everyone talking — and then turned that momentum into a restaurant that broke Philly records on day one. Listen wherever you get your podcasts.</p>
+        <div class="podcast-platforms">
+          <a href="https://www.youtube.com/@SkinneyJoeyMerlino" target="_blank" class="platform-btn">YouTube</a>
+          <a href="https://open.spotify.com" target="_blank" class="platform-btn">Spotify</a>
+          <a href="https://podcasts.apple.com" target="_blank" class="platform-btn">Apple Podcasts</a>
+        </div>
+        <a href="https://www.youtube.com/@SkinneyJoeyMerlino" target="_blank" class="btn-red">Watch on YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Skinny <span>Joey's</span></div>
+          <div class="footer-tagline">#WeCanGoAnywhere · South Philly's Own</div>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/skinnyjoeys_cheesesteaks" target="_blank" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/share/1D3qtx3nZT/" target="_blank" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@SkinneyJoeyMerlino" target="_blank" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#location">Find Us</a></li>
+            <li><a href="#podcast">The Skinny Podcast</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Get Gear</h5>
+          <ul>
+            <li><a href="https://theskinnyjoeyscheesesteaks.com/collections/all" target="_blank">Shop All Merch</a></li>
+            <li><a href="https://theskinnyjoeyscheesesteaks.com/collections/all" target="_blank">Hats</a></li>
+            <li><a href="https://theskinnyjoeyscheesesteaks.com/collections/all" target="_blank">Hoodies</a></li>
+            <li><a href="https://theskinnyjoeyscheesesteaks.com/collections/all" target="_blank">T-Shirts</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Skinny Joey's Cheesesteaks. 3020 S Broad Street, Philadelphia, PA 19145</p>
+        <p class="footer-hashtag">#WeCanGoAnywhere #NoRatsAllowed #SouthPhillyEats</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

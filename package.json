@@ -1,0 +1,11 @@
+{
+  "name": "skinny-joeys-demo",
+  "version": "1.0.0",
+  "description": "Skinny Joey's Cheesesteaks concept demo",
+  "scripts": {
+    "start": "npx serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
