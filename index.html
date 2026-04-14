@@ -494,40 +494,24 @@
       background: var(--red);
     }
 
-    .menu-card-num {
-      width: 100%;
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 24px;
-      background: var(--dark-card);
-      overflow: hidden;
+    .menu-body {
+      padding: 28px 24px 28px;
       position: relative;
+      overflow: hidden;
     }
 
-    .menu-card-num-big {
+    .menu-body-num {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 120px;
+      font-size: 140px;
       line-height: 1;
-      color: rgba(204,0,0,0.12);
+      color: rgba(204,0,0,0.08);
       letter-spacing: 0.02em;
       position: absolute;
-      right: 12px;
-      bottom: -10px;
+      right: -8px;
+      bottom: -20px;
+      pointer-events: none;
+      user-select: none;
     }
-
-    .menu-card-num-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 42px;
-      color: var(--red);
-      letter-spacing: 0.04em;
-      line-height: 1;
-      position: relative;
-      z-index: 1;
-    }
-
-    .menu-body { padding: 20px 22px 24px; }
 
     .menu-tag {
       font-size: 9px;
@@ -1102,51 +1086,51 @@
       </div>
       <div class="menu-grid">
         <div class="menu-card">
-          <div class="menu-card-num"><span class="menu-card-num-label">RIBEYE</span><span class="menu-card-num-big">01</span></div>
           <div class="menu-body">
             <span class="menu-tag">The Classic</span>
             <div class="menu-name">Philly Cheesesteak</div>
             <p class="menu-desc">Thin-sliced ribeye, melted sharp provolone or Cooper Sharp, grilled onions — on a legendary Aversa's seeded or unseeded roll. The South Philly original.</p>
+            <div class="menu-body-num">01</div>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-num"><span class="menu-card-num-label">CHICKEN</span><span class="menu-card-num-big">02</span></div>
           <div class="menu-body">
             <span class="menu-tag">Fan Favorite</span>
             <div class="menu-name">Chicken Cheesesteak</div>
             <p class="menu-desc">Juicy chicken cheesesteak loaded with cherry peppers and melted cheese. A Philly twist that keeps people coming back.</p>
+            <div class="menu-body-num">02</div>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-num"><span class="menu-card-num-label">PIZZA ROLLS</span><span class="menu-card-num-big">03</span></div>
           <div class="menu-body">
             <span class="menu-tag">South Philly Style</span>
             <div class="menu-name">Florida-Style Pizza Rolls</div>
-            <p class="menu-desc">Joey's Florida-style pizza rolls — crispy, loaded, and nothing like what you've had before. A menu item that's already building a following.</p>
+            <p class="menu-desc">Joey's Florida-style pizza rolls — crispy, loaded, and nothing like what you've had before. Already building a following.</p>
+            <div class="menu-body-num">03</div>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-num"><span class="menu-card-num-label">HOT HONEY</span><span class="menu-card-num-big">04</span></div>
           <div class="menu-body">
             <span class="menu-tag">Already a Philly Staple</span>
             <div class="menu-name">Hot Honey Wings</div>
-            <p class="menu-desc">Small, crispy wings tossed in Skinny Joey's signature hot honey sauce. Joey searched all over to get this right — and he did. Already becoming a Philly favorite.</p>
+            <p class="menu-desc">Small, crispy wings tossed in Skinny Joey's signature hot honey sauce. Joey searched all over to get this right — and he did.</p>
+            <div class="menu-body-num">04</div>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-num"><span class="menu-card-num-label">AVERSA'S</span><span class="menu-card-num-big">05</span></div>
           <div class="menu-body">
             <span class="menu-tag">The Roll That Makes It</span>
             <div class="menu-name">Aversa's Rolls</div>
-            <p class="menu-desc">Every sandwich starts with the iconic Aversa's seeded or unseeded roll — baked to perfection. The roll that gives you that true South Philly bite.</p>
+            <p class="menu-desc">Every sandwich starts with the iconic Aversa's seeded or unseeded roll — baked to perfection. That true South Philly bite.</p>
+            <div class="menu-body-num">05</div>
           </div>
         </div>
         <div class="menu-card">
-          <div class="menu-card-num"><span class="menu-card-num-label">COOPER SHARP</span><span class="menu-card-num-big">06</span></div>
           <div class="menu-body">
             <span class="menu-tag">The Cheese Game</span>
             <div class="menu-name">Cooper Sharp</div>
-            <p class="menu-desc">Don't sleep on the Cooper Sharp melting over every bite. It's the secret weapon that separates Skinny Joey's from every other cheesesteak in the city.</p>
+            <p class="menu-desc">Don't sleep on the Cooper Sharp melting over every bite. The secret weapon that separates Skinny Joey's from every other cheesesteak in the city.</p>
+            <div class="menu-body-num">06</div>
           </div>
         </div>
       </div>
